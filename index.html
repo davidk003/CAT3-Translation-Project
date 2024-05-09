@@ -19,6 +19,7 @@
 
         .text-card{
             color: azure;
+            position: absolute;
             border-radius: 5px;
             max-width: 1000px;
             margin: 0 auto;
@@ -35,15 +36,13 @@
         }
 
         #poem-container{
-        z-index: 10;
-        background-color: var(--Orange);
-        position: absolute;
+            z-index: 10;
+            background-color: var(--Orange);
         }
 
 
         #intro-container{
             background-color: var(--Olivine);
-            position: absolute;
             top: 50px;
         }
 
@@ -72,11 +71,11 @@
             <h3>By [author]</h3>
             <p id="intro-text"></p>
         </div>
-        <div id="intro-2container" class="text-card">
+        <!-- <div id="intro-2container" class="text-card">
             <h2>Intro/Conclusion</h2>
             <h3>By [author]</h3>
             <p id="intro2-text"></p>
-        </div>
+        </div> -->
     </div>
 	<script src="index.js"></script>
     <script>
