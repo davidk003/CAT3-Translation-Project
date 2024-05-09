@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- FLIP THROUGH CARDS/CONTAINERS AND CHANGE CONTENT -->
+<html lang="en">
+    <style>
+        :root {
+        --Flame: #E4572E;
+        --DelftBlue: #29335C;
+        --Orange: #F3A712;
+        --Olivine: #A8C686;
+        --AirSuperiorityBlue: #669BBC;
+
+        background-color: var(--DelftBlue);
+        }
+        * {
+        -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+                box-sizing: border-box;
+        }
+
+        .text-card{
+            color: azure;
+            border-radius: 5px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        #card-box{
+            position: relative;
+        }
+
+
+        #base-container{
+            display: none;
+        }
+
+        #poem-container{
+        z-index: 10;
+        background-color: var(--Orange);
+        position: absolute;
+        }
+
+
+        #intro-container{
+            background-color: var(--Olivine);
+            position: absolute;
+            top: 50px;
+        }
+
+    </style>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CAT 3 Translation Project</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="card-box">
+        <!-- <div id="base-container" class="text-card">
+            <h2>Intro/Conclusion</h2>
+            <h3>By [author]</h3>
+            <p id="intro-text"></p>
+        </div> -->
+        <div id="poem-container" class="text-card">
+            <h2>[Poem Title]</h2>
+            <h3>By [author]</h3>
+            <p id="poem-text"></p>
+        </div>
+        <div id="intro-container" class="text-card">
+            <h2>Intro/Conclusion</h2>
+            <h3>By [author]</h3>
+            <p id="intro-text"></p>
+        </div>
+        <div id="intro-2container" class="text-card">
+            <h2>Intro/Conclusion</h2>
+            <h3>By [author]</h3>
+            <p id="intro2-text"></p>
+        </div>
+    </div>
+	<script src="index.js"></script>
+    <script>
+        const poemStr="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi. Sit amet nisl purus in mollis nunc sed id semper. Lectus mauris ultrices eros in cursus. Amet massa vitae tortor condimentum lacinia quis vel eros. Magna etiam tempor orci eu lobortis elementum. Tempor commodo ullamcorper a lacus. Diam sit amet nisl suscipit adipiscing bibendum est. Ipsum a arcu cursus vitae congue mauris rhoncus aenean vel. Donec massa sapien faucibus et molestie ac feugiat sed. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Iaculis nunc sed augue lacus viverra vitae. Curabitur gravida arcu ac tortor dignissim convallis aenean. Netus et malesuada fames ac turpis egestas integer eget aliquet. Lorem sed risus ultricies tristique nulla aliquet enim. Lorem ipsum dolor sit amet. A diam maecenas sed enim ut sem. Sit amet justo donec enim diam vulputate. In eu mi bibendum neque egestas congue quisque egestas diam. Vestibulum morbi blandit cursus risus. Pellentesque elit ullamcorper dignissim cras tincidunt. Habitant morbi tristique senectus et netus. Ut venenatis tellus in metus vulputate eu. Lectus nulla at volutpat diam ut venenatis tellus. Facilisi morbi tempus iaculis urna id. Aenean sed adipiscing diam donec adipiscing tristique risus nec."
+        // let poemP = document.getElementById("poem-text");
+        let textCards = document.querySelectorAll("div.text-card");
+        textCards.forEach(element => {
+            console.log(element);
+            element.querySelector('p').textContent=poemStr;
+        });
+
+        
+
+        function stopElementDrag(){
+            console.log("start dragging");  
+        }
+    </script>
+  </body>
+</html>
