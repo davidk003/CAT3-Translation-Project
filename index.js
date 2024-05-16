@@ -16,7 +16,6 @@ ctx.shadowColor = "white";
 
 var starSpawnSpeed = 50;
 
-
 function centerSVG() {
   var svg = document.getElementById('planet');
   
@@ -35,6 +34,7 @@ function centerSVG() {
 centerSVG();
 window.onresize = function() {
   centerSVG();
+  console.log("canvas resized");
   W = window.innerWidth;
   H = window.innerHeight;
 };
