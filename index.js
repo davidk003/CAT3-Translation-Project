@@ -2,6 +2,7 @@
 var ctx = cnv.getContext("2d");
 var W = window.innerWidth;
 var H = window.innerHeight;
+var starLocs = [];
 
 //Set Canvas and Background Color;
 cnv.width = W;
@@ -13,11 +14,7 @@ ctx.fillRect(0, 0, W, H);
 ctx.shadowBlur = 10;
 ctx.shadowColor = "white";
 
-// ctx.beginPath();
-// ctx.arc(95, 50, 40, 0, 2 * Math.PI);
-// ctx.fillStyle = "red";
-// ctx.fill();
-
+var starSpawnSpeed = 50;
 
 
 function centerSVG() {
@@ -38,6 +35,8 @@ function centerSVG() {
 centerSVG();
 window.onresize = function() {
   centerSVG();
+  W = window.innerWidth;
+  H = window.innerHeight;
 };
 
 function animate() {
@@ -45,7 +44,7 @@ function animate() {
   let x = W * Math.random();
   let y = H * Math.random();
   let r = 2.5 * Math.random();
-
+  starLocs.push([x,y,r])
   //Draw the stars;
   ctx.beginPath();
   ctx.fillStyle = "white";
@@ -53,12 +52,25 @@ function animate() {
   ctx.fill();
 
   //Using setTimeout instead of window.requestAnimationFrame for slower speed... window.requestAnimationFrame is approximately equal to setTimeout(func, 17);
-  setTimeout(animate, 100);
+  setTimeout(animate, starSpawnSpeed);
 }
 animate();
 
 function handleClick() {
   alert("Planet Clicked!");
+  var planet= document.getElementById('planet');
+  starSpawnSpeed = 0.5;
+  document.getElementById('cnv').style.filter = "blur(3px)";
+  planet.style.filter = "blur(3px)";
+  
+  // for(var i = 200; i < 500; i++)
+  // {
+  //   setTimeout(() => {planet.style.height=i;planet,.sty
+      
+  //   }, 10);
+  // }
 }
 var circle = document.getElementById('planet');
   circle.addEventListener('click', handleClick);
+
+
