@@ -6,46 +6,77 @@
     --AirSuperiorityBlue: #669BBC;
 
     background-color: var(--DelftBlue);
-    }
+}
+body{
+    margin: 0;
+}
+canvas{
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:-1;
+}
 
-    canvas{
-        position:absolute;
-        left:0;
-        top:0;
-        z-index:-1;
-    }
+* {
+-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
 
-    * {
-    -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-            box-sizing: border-box;
-    }
+.text-card{
+    color: azure;
+    position: absolute;
+    border-radius: 5px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
 
-    .text-card{
-        color: azure;
-        position: absolute;
-        border-radius: 5px;
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 10px;
-    }
-
-    #card-box{
-        position: relative;
-    }
-
-
-    #base-container{
-        display: none;
-    }
-
-    #poem-container{
-        z-index: 10;
-        background-color: var(--Orange);
-    }
+#card-box{
+    position: relative;
+}
 
 
-    #intro-container{
-        background-color: var(--Olivine);
-        top: 50px;
-    }
+#base-container{
+    display: none;
+}
+
+#poem-container{
+    z-index: 10;
+    background-color: var(--Orange);
+}
+
+
+#intro-container{
+    background-color: var(--Olivine);
+    top: 50px;
+}
+
+.navbar{
+    color: black;
+    background-color: var(--DelftBlue);
+    overflow: hidden;
+}
+
+.navbar a{
+    z-index: 10;
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+a:link, a:visited, a:hover, a:active{
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:hover{
+    background-color: var(--AirSuperiorityBlue);
+}
+
+svg{
+    z-index: 100;
+}

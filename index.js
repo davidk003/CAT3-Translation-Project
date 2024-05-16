@@ -13,6 +13,33 @@ ctx.fillRect(0, 0, W, H);
 ctx.shadowBlur = 10;
 ctx.shadowColor = "white";
 
+// ctx.beginPath();
+// ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+// ctx.fillStyle = "red";
+// ctx.fill();
+
+
+
+function centerSVG() {
+  var svg = document.getElementById('planet');
+  
+  var windowWidth = window.innerWidth;
+  var windowHeight = window.innerHeight;
+  
+  var svgWidth = svg.clientWidth;
+  var svgHeight = svg.clientHeight;
+  
+  var dx = (windowWidth - svgWidth) / 2;
+  var dy = (windowHeight - svgHeight) / 2;
+  
+  svg.setAttribute('transform', `translate(${dx}, ${dy})`);
+  console.log("test");
+}
+centerSVG();
+window.onresize = function() {
+  centerSVG();
+};
+
 function animate() {
   //Random position and size of stars;
   let x = W * Math.random();
@@ -29,3 +56,9 @@ function animate() {
   setTimeout(animate, 100);
 }
 animate();
+
+function handleClick() {
+  alert("Planet Clicked!");
+}
+var circle = document.getElementById('planet');
+  circle.addEventListener('click', handleClick);

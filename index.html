@@ -21,12 +21,59 @@
 
 
     <canvas id="cnv"></canvas>
+    <div class="navbar">
+    <a href="#test">test1</a>
+    <a>test2</a>
+    <a>test3</a>
+    </div>
+
+    <svg viewBox="0 0 200 200" width="100" height="100" xmlns="http://www.w3.org/2000/svg" id="planet">
+        <!-- Define gradient for the planet's color -->
+        <defs>
+          <radialGradient id="planetGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" style="stop-color:rgb(210,180,140);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(244,164,96);stop-opacity:1" />
+          </radialGradient>
+        </defs>
+      
+        <!-- Draw the planet -->
+        <circle cx="100" cy="100" r="90" fill="url(#planetGradient)" />
+      
+        <!-- Draw continents -->
+        <path d="M70,70 C75,65 85,65 90,70 C95,75 90,85 85,90 C80,95 70,90 65,85 C60,80 65,75 70,70 Z" fill="#D2B48C" />
+        <path d="M130,100 C135,95 145,95 150,100 C155,105 150,115 145,120 C140,125 130,120 125,115 C120,110 125,105 130,100 Z" fill="#D2B48C" />
+        <path d="M80,130 C85,125 95,125 100,130 C105,135 100,145 95,150 C90,155 80,150 75,145 C70,140 75,135 80,130 Z" fill="#D2B48C" />
+      
+        <!-- Add some small islands -->
+        <circle cx="160" cy="50" r="5" fill="#D2B48C" />
+        <circle cx="50" cy="160" r="7" fill="#D2B48C" />
+        <circle cx="150" cy="150" r="4" fill="#D2B48C" />
+      
+        <!-- Add mountains -->
+        <path d="M60,110 L65,100 L70,110 Z" fill="#A9A9A9" />
+        <path d="M140,60 L145,50 L150,60 Z" fill="#A9A9A9" />
+        <path d="M110,140 L115,130 L120,140 Z" fill="#A9A9A9" />
+        <path d="M90,80 L95,70 L100,80 Z" fill="#A9A9A9" />
+        <path d="M120,120 L125,110 L130,120 Z" fill="#A9A9A9" />
+      
+        <!-- Add more detailed mountains -->
+        <path d="M55,90 L60,80 L65,90 Z" fill="#696969" />
+        <path d="M150,130 L155,120 L160,130 Z" fill="#696969" />
+        <path d="M100,160 L105,150 L110,160 Z" fill="#696969" />
+        <path d="M70,50 L75,40 L80,50 Z" fill="#696969" />
+        <path d="M130,80 L135,70 L140,80 Z" fill="#696969" />
+      
+        <!-- Add rocky areas -->
+        <path d="M50,50 C55,45 65,45 70,50 C75,55 70,65 65,70 C60,75 50,70 45,65 C40,60 45,55 50,50 Z" fill="#C0C0C0" />
+        <path d="M150,150 C155,145 165,145 170,150 C175,155 170,165 165,170 C160,175 150,170 145,165 C140,160 145,155 150,150 Z" fill="#C0C0C0" />
+      </svg>
+      
+      
+
+      
+<!-- 
     <div id="card-box">
-        <!-- <div id="base-container" class="text-card">
-            <h2>Intro/Conclusion</h2>
-            <h3>By [author]</h3>
-            <p id="intro-text"></p>
-        </div> -->
+
         <div id="poem-container" class="text-card">
             <h2>[Poem Title]</h2>
             <h3>By [author]</h3>
@@ -37,12 +84,7 @@
             <h3>By [author]</h3>
             <p id="intro-text"></p>
         </div>
-        <!-- <div id="intro-2container" class="text-card">
-            <h2>Intro/Conclusion</h2>
-            <h3>By [author]</h3>
-            <p id="intro2-text"></p>
-        </div> -->
-    </div>
+    </div> -->
 	<script src="index.js"></script>
     <script>
         const poemStr="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi. Sit amet nisl purus in mollis nunc sed id semper. Lectus mauris ultrices eros in cursus. Amet massa vitae tortor condimentum lacinia quis vel eros. Magna etiam tempor orci eu lobortis elementum. Tempor commodo ullamcorper a lacus. Diam sit amet nisl suscipit adipiscing bibendum est. Ipsum a arcu cursus vitae congue mauris rhoncus aenean vel. Donec massa sapien faucibus et molestie ac feugiat sed. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Iaculis nunc sed augue lacus viverra vitae. Curabitur gravida arcu ac tortor dignissim convallis aenean. Netus et malesuada fames ac turpis egestas integer eget aliquet. Lorem sed risus ultricies tristique nulla aliquet enim. Lorem ipsum dolor sit amet. A diam maecenas sed enim ut sem. Sit amet justo donec enim diam vulputate. In eu mi bibendum neque egestas congue quisque egestas diam. Vestibulum morbi blandit cursus risus. Pellentesque elit ullamcorper dignissim cras tincidunt. Habitant morbi tristique senectus et netus. Ut venenatis tellus in metus vulputate eu. Lectus nulla at volutpat diam ut venenatis tellus. Facilisi morbi tempus iaculis urna id. Aenean sed adipiscing diam donec adipiscing tristique risus nec."
