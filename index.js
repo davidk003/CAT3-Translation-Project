@@ -74,18 +74,24 @@ function startingPage()
       starSize = i*2;
       ctx.shadowBlur = i;
       centerSVG();
-      console.log("blurred " + i);
-      setTimeout(countUpBlur, 50, i+0.1);
+      // console.log("blurred " + i);
+      setTimeout(countUpBlur, 25, i+0.1);
     }
   }
   function handleClick() {
     alert("Clicked!");
     starSpawnSpeed = 0.5;
     countUpBlur(1);
+    setTimeout(() => {
+      document.getElementById("cnv").style.visibility = "hidden";
+      document.getElementById("planet").style.visibility = "hidden";
+      document.getElementById("c").style.visibility = "visible";
+    }, 1000);
+    
 
   }
   document.getElementById('planet').addEventListener('click', handleClick);
-  document.getElementById('menu1').addEventListener('click', handleClick)
+  document.getElementById('menu1').addEventListener('click', handleClick);
 
 }
 
