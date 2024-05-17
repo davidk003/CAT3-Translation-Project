@@ -40,6 +40,24 @@ function main() {
         requestAnimationFrame(render);
       }
       requestAnimationFrame(render);
+    // window.onresize=function()
+    // {
+    //     renderer.setPixelRatio(window.devicePixelRatio * 5);
+    //     renderer.setSize( canvas.width, canvas.height );
+    //     renderer.setPixelRatio(window.devicePixelRatio);
+    //     camera.aspect = canvas.width / canvas.height;
+    //     camera.updateProjectionMatrix();
+    //     console.log("resized renderer");
+    // }
+    // window.onload=function()
+    // {
+    //     renderer.setPixelRatio(window.devicePixelRatio * 5);
+    //     renderer.setSize( canvas.width, canvas.height );
+    //     renderer.setPixelRatio(window.devicePixelRatio);
+    //     camera.aspect = canvas.width / canvas.height;
+    //     camera.updateProjectionMatrix();
+    //     console.log("resized renderer");
+    // }
 
 }
 
