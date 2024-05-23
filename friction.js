@@ -75,7 +75,7 @@ window.onload=function()
     fixAspect();
 }
 
-function transitionScene()
+function startFriction()
 {
     console.log("transiton to friction");
     main();
@@ -95,5 +95,5 @@ function fixAspect()
 
     renderer.render(scene, camera);
 }
-document.getElementById('planet').addEventListener('click', transitionScene);
-document.getElementById('menu1').addEventListener('click', transitionScene);
+document.getElementById('planet').addEventListener('click', startFriction);
+document.getElementById('menu3').addEventListener('click', startFriction);

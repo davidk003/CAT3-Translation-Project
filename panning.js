@@ -254,7 +254,6 @@ class Transform {
   function draw(ctx, transform) {
     clearCanvas(ctx, transform);
     drawCircle(ctx);
-
   }
   
   function run() {
