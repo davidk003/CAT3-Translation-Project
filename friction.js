@@ -95,5 +95,3 @@ function fixAspect()
 
     renderer.render(scene, camera);
 }
-document.getElementById('planet').addEventListener('click', startFriction);
-document.getElementById('menu3').addEventListener('click', startFriction);
