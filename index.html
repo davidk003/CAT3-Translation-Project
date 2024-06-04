@@ -14,14 +14,24 @@
       <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/threejs/r84/three.min.js"></script>
 <script>
-  $(document).ready(function() {
+  function resetHorizontalBlocks() {
+  $('.horizontal-block')
+    .stop() // Stop any ongoing animations
+    .css({ // Reset styles
+      left: '0', // Move blocks off-screen
+      width: '100%', // Set width to 0
+      borderRadius: '0px' // Reset border-radius
+    });
+}
+  // $(document).ready(
+    function pretransition() {
     // Initial left position to animate from
     $('.horizontal-block').css('left', '-100%');
 
     // Slide blocks into position
     $('.horizontal-block').animate({
         left: 0
-    }, 1000, function() {
+    }, 500, function() {
         // After sliding in, start width animation
         $('.horizontal-block').each(function(index) {
             setTimeout(() => {
@@ -32,8 +42,10 @@
     setTimeout(() => {
             $('.horizontal-block').css('border-radius', '0 5px 5px 0');
         }, 1000);
-});
-$(document).ready(function() {
+}
+// );
+// $(document).ready(
+  function transition() {
     // Enhanced easing function for a more prominent bounce effect
     $.extend($.easing, {
         bounce: function (x, t, b, c, d) {
@@ -76,9 +88,38 @@ $(document).ready(function() {
 
     // Start the animation
     animateBlocks();
-});
+}
+// );
   </script>
-
+<script>
+  $(document).ready(function() {
+  // Loop through scene links from 1 to 9
+  for (let i = 1; i <= 9; i++) {
+    const sceneLink = $(`#scene-${i}`);
+    sceneLink.click(function() {
+      $('.horizontal-block').css('visibility', 'visible');
+      pretransition();
+      setTimeout(() => {
+        transition();
+        }, 500);
+      setTimeout(() => {
+          $('.horizontal-block').css('visibility', 'hidden');
+          resetHorizontalBlocks();
+        }, 6000);
+    });
+  }
+});
+//   $(document).ready(function() {
+//   const animateLink = $('#scene-9');
+//   animateLink.click(function(event) {
+//     console.log("test");
+//     $('.horizontal-block').css('visibility', 'visible');
+//     pretransition();
+//     // event.preventDefault(); // Prevent default link navigation
+//     transition();
+//   });
+// });
+</script>
 
 
     <canvas id="cnv" class="scene-1"></canvas>
