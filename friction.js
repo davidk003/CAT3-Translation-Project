@@ -28,6 +28,7 @@ const geometry = new THREE.BoxGeometry( boxWidth, boxHeight, boxDepth );
 const material = new THREE.MeshBasicMaterial( { color: 0x44aa88 } ); // greenish blue
 
 const cube = new THREE.Mesh( geometry, material );
+var sceneNotRendered = true;
 function main()
 {
 	scene.add( cube );
@@ -46,22 +47,6 @@ function main()
         requestAnimationFrame(render);
       }
     requestAnimationFrame(render);
-    // window.onresize=function()
-    // {
-    //     renderer.setSize( canvas.width, canvas.height );
-    //     renderer.setPixelRatio(window.devicePixelRatio);
-    //     camera.aspect = (canvas.width / canvas.height);
-    //     camera.updateProjectionMatrix();
-    //     console.log("resized renderer");
-    // }
-    // window.onload=function()
-    // {
-    //     renderer.setSize( canvas.width, canvas.height );
-    //     camera.aspect = canvas.width / canvas.height;
-    //     camera.updateProjectionMatrix();
-    //     console.log("resized renderer");
-    // }
-
 
 }
 
@@ -78,7 +63,12 @@ window.onload=function()
 function startScene2()
 {
     console.log("transiton to friction");
-    main();
+    if(sceneNotRendered)
+    {
+        main();
+        console.log("rendered");
+        sceneNotRendered = false;
+    }
 }
 
 function fixAspect()

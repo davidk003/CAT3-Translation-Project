@@ -46,9 +46,10 @@ function transitionScene(sceneToStart)
   let sceneNumber = currentScene.replace(/[^0-9]/g, '');
   transitionAnimation();            //Play transition animation
   hideScene(currentScene);          //Hide scene 
+  window["cleanupScene"+sceneNumber];
   currentScene = sceneToStart;      //Set scene state
   showScene(currentScene);          //Show scene
-  window["startScene"+sceneNumber]; //Call Scene runner
+  window["startScene"+sceneNumber];//Call Scene runner
   
 }
 

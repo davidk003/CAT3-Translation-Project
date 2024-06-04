@@ -14,15 +14,84 @@
       <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/threejs/r84/three.min.js"></script>
 <script>
-  $( function() {
-    $( ".text-card" ).draggable();
-  } );
+  $(document).ready(function() {
+    // Initial left position to animate from
+    $('.horizontal-block').css('left', '-100%');
+
+    // Slide blocks into position
+    $('.horizontal-block').animate({
+        left: 0
+    }, 1000, function() {
+        // After sliding in, start width animation
+        $('.horizontal-block').each(function(index) {
+            setTimeout(() => {
+                $(this).css('width', '100%');
+            }, index * 200); // Stagger the animations by 200 milliseconds
+        });
+    });
+    setTimeout(() => {
+            $('.horizontal-block').css('border-radius', '0 5px 5px 0');
+        }, 1000);
+});
+$(document).ready(function() {
+    // Enhanced easing function for a more prominent bounce effect
+    $.extend($.easing, {
+        bounce: function (x, t, b, c, d) {
+            if ((t/=d) < (1/2.75)) {
+                return c*(7.5625*t*t) + b;
+            } else if (t < (2/2.75)) {
+                return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+            } else if (t < (2.5/2.75)) {
+                return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+            } else {
+                return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+            }
+        }
+    });
+
+    // Function to animate width transition in smaller intervals
+    function animateBlocks() {
+        var intervals = [80,60,40,20,0];
+        var duration = 150; // 0.1 seconds for each interval
+        var stagger = 100; // 0.3 seconds stagger between each block animation
+
+        $('.horizontal-block').each(function(index) {
+            var delay = index * stagger;
+
+            intervals.forEach(function(width, i) {
+                $(this).delay(delay).animate(
+                    { width: width + '%' },
+                    {
+                        duration: duration,
+                        easing: 'bounce',
+                        complete: function() {
+                            // Optionally, you can do something when each interval completes
+                        }
+                    }
+                );
+                delay += duration;
+            }.bind(this)); // Bind 'this' to correctly reference the current block
+        });
+    }
+
+    // Start the animation
+    animateBlocks();
+});
   </script>
 
 
 
     <canvas id="cnv" class="scene-1"></canvas>
     <canvas id="c" class="scene-2"></canvas>
+    <div id="animation-layer">
+      <div class="horizontal-block first-block"></div>
+      <div class="horizontal-block second-block"></div>
+      <div class="horizontal-block third-block"></div>
+      <div class="horizontal-block fourth-block"></div>
+      <div class="horizontal-block fifth-block"></div>
+
+
+    </div>
     <div class="navbar">
     <!-- <a id="scene-1">Scene 1</a>
     <a id="scene-2">Scene 2</a>
@@ -56,12 +125,12 @@
             <p id="intro-text"></p>
         </div>
     </div> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
   <script src="starting.js"></script>
 	<script src="index.js"></script>
   <script src="panning.js"></script>
   <script src="friction.js"></script>
 
-  
     <!-- <script>
         const poemStr="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi. Sit amet nisl purus in mollis nunc sed id semper. Lectus mauris ultrices eros in cursus. Amet massa vitae tortor condimentum lacinia quis vel eros. Magna etiam tempor orci eu lobortis elementum. Tempor commodo ullamcorper a lacus. Diam sit amet nisl suscipit adipiscing bibendum est. Ipsum a arcu cursus vitae congue mauris rhoncus aenean vel. Donec massa sapien faucibus et molestie ac feugiat sed. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Iaculis nunc sed augue lacus viverra vitae. Curabitur gravida arcu ac tortor dignissim convallis aenean. Netus et malesuada fames ac turpis egestas integer eget aliquet. Lorem sed risus ultricies tristique nulla aliquet enim. Lorem ipsum dolor sit amet. A diam maecenas sed enim ut sem. Sit amet justo donec enim diam vulputate. In eu mi bibendum neque egestas congue quisque egestas diam. Vestibulum morbi blandit cursus risus. Pellentesque elit ullamcorper dignissim cras tincidunt. Habitant morbi tristique senectus et netus. Ut venenatis tellus in metus vulputate eu. Lectus nulla at volutpat diam ut venenatis tellus. Facilisi morbi tempus iaculis urna id. Aenean sed adipiscing diam donec adipiscing tristique risus nec."
         // let poemP = document.getElementById("poem-text");

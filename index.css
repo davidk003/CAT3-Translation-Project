@@ -13,6 +13,38 @@ body{
     overflow: hidden;
 }
 
+.horizontal-block {
+    width: 100%;
+    height: 20%;
+    background-color: white;
+    position: fixed;
+    left: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure the blocks are on top of other elements */
+    transition: width 1.5s;
+    transition-delay: 0.1s;
+}
+
+.first-block {
+    top: 0;
+}
+
+.second-block {
+    top: 20%;
+}
+
+.third-block {
+    top: 40%;
+}
+
+.fourth-block {
+    top: 60%;
+}
+
+.fifth-block {
+    top: 80%;
+}
+
 #c{
     visibility: hidden;
     background-color: black;
