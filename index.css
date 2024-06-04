@@ -24,7 +24,13 @@ body{
     z-index: 1000; /* Ensure the blocks are on top of other elements */
     transition: width 1.5s;
     transition-delay: 0.1s;
+    animation: jiggle 0.5s ease-in-out infinite;
 }
+@keyframes jiggle {
+  from, to { transform: translateX(-7px); }
+  50% { transform: translateX(0px); }
+}
+/* May need to delete later along with animation: in horiz block*/
 
 .first-block {
     top: 0;
