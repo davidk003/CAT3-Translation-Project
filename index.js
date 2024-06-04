@@ -1,4 +1,4 @@
-var currentScene = "startingScene";
+var currentScene = "scene-1";
 const SCENE1TEXT = "";
 const SCENE2TEXT = "Strong as steel\nMeant to shield\nBlocking out what’s real\nAs those inside yield";
 const SCENE3TEXT = "Laying rest\nOut of time and air\nYet dying not depressed\nOnly you feel despair";
@@ -20,27 +20,37 @@ const SCENES = [
   {text:SCENE9TEXT},
 ]
 
-startingPage();
+startScene1();
 
 function hideScene(className)
 {
-  let canvases = document.getElementsByClassName(className);
-  [...canvases].forEach(element => {element.style.visibility="hidden"});
+  let sceneElements = document.getElementsByClassName(className);
+  [...sceneElements].forEach(element => {element.style.visibility="hidden"});
 }
 
 function showScene(className)
 {
-  let canvases = document.getElementsByClassName(className);
-  [...canvases].forEach(element => {element.style.visibility="visible"});
+  let sceneElements = document.getElementsByClassName(className);
+  [...sceneElements].forEach(element => {element.style.visibility="visible"});
 }
 
-function transitionScene(startScene)
+function transitionAnimation()
 {
-
-  hideScene(currentScene);
-  startScene();
+  console.log("DO ANIMATION HERE");
 }
 
+
+//ONCLICK->Transition animation->Hide Current Scene->Set current scene->Show current scene->Run scene functions
+function transitionScene(sceneToStart)
+{
+  let sceneNumber = currentScene.replace(/[^0-9]/g, '');
+  transitionAnimation();            //Play transition animation
+  hideScene(currentScene);          //Hide scene 
+  currentScene = sceneToStart;      //Set scene state
+  showScene(currentScene);          //Show scene
+  window["startScene"+sceneNumber]; //Call Scene runner
+  
+}
 
 //Setup navbar:
 let navbar = document.getElementsByClassName("navbar")[0];
@@ -52,8 +62,13 @@ SCENES.forEach(function (element, i)
   navbar.appendChild(link);
 });
 
-document.getElementById('planet').addEventListener('click', ()=>{leaveStart();setTimeout(()=>{hideScene(currentScene); currentScene="frictionScene";startFriction();showScene(currentScene);},1000)});
-document.getElementById('scene-1').addEventListener('click', ()=>{startingPage();hideScene(currentScene);currentScene="startingScene";showScene(currentScene);run();});
-document.getElementById('scene-2').addEventListener('click', ()=>{hideScene(currentScene); currentScene="frictionScene";startFriction();showScene(currentScene);});
+
+
+document.getElementById('planet').addEventListener('click', ()=>{leaveStart();setTimeout(()=>{hideScene(currentScene); currentScene="scene-2";startScene2();showScene(currentScene);},1000)});
+
+
+document.getElementById('scene-1').addEventListener('click', ()=>{startScene1();hideScene(currentScene);currentScene="scene-1";showScene(currentScene);run();});
+document.getElementById('scene-2').addEventListener('click', ()=>{leaveStart();setTimeout(()=>{hideScene(currentScene); currentScene="scene-2";startScene2();showScene(currentScene);},1000)});
+
+// document.getElementById('scene-2').addEventListener('click', ()=>{leaveStart();setTimeout(()=>{hideScene(currentScene); currentScene="scene-2";startScene2();showScene(currentScene);},1000)});
 document.getElementById('scene-3').addEventListener('click', ()=>{hideScene(currentScene); currentScene="placeholder";});
-// document.getElementsByClassName("navbar")[0].appendChild(document.createElement(tag));

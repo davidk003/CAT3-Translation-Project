@@ -75,7 +75,7 @@ window.onload=function()
     fixAspect();
 }
 
-function startFriction()
+function startScene2()
 {
     console.log("transiton to friction");
     main();

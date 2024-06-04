@@ -22,7 +22,7 @@ function centerSVG()
   svg.setAttribute('transform', `translate(${dx}, ${dy})`);
 }
 
-function startingPage()
+function startScene1()
 {
   //Set Canvas and Background Color;
   cnv.width = W;
