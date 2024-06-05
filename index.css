@@ -59,12 +59,12 @@ body{
     height: 100%;
 }
 
-#scene-2-text
+/* #scene-2-text
 {
     visibility: hidden;
     position: absolute;
     z-index:-1;
-}
+} */
 
 #steel-door{
     visibility: hidden;
@@ -89,13 +89,15 @@ canvas{
 }
 
 .navbar{
+    position: relative;
+    z-index: 101;
     color: black;
     background-color: var(--DelftBlue);
     overflow: hidden;
 }
 
 .navbar a{
-    z-index: 10;
+    z-index: 101;
     float: left;
     color: white;
     text-align: center;
@@ -107,13 +109,15 @@ canvas{
 a:link, a:visited, a:hover, a:active{
     color: white;
     text-decoration: none;
+    z-index: 101;
 }
 
 .navbar a:hover{
     background-color: var(--AirSuperiorityBlue);
     cursor:pointer;
+    z-index: 101;
 }
 
 svg{
-    z-index: 100;
+    z-index: 50;
 }

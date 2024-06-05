@@ -11,15 +11,25 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="navbar">
+      <!-- <a id="scene-1">Scene 1</a>
+    <a id="scene-2">Scene 2</a>
+    <a id="scene-3">Scene 3</a> 
+              .....-->
+    </div>
     <canvas id="cnv" class="scene-1"></canvas>
     <div id="left-door" class="scene-2 door"></div>
     <div id="right-door" class="scene-2 door"></div>
-    <div id="poem-container" class="scene-2">
-        <pre id="poem"></pre>
+    <div id="poem-scene-2-container" class="scene-2">
+        <pre id="poem-scene-2"></pre>
     </div>
 
     <div id="darkness" class="scene-3"></div>
     <div id="flashlight" class="scene-3"></div>
+    <div id="poem-scene-3-container" class="scene-3">
+      <pre id="poem-scene-3"></pre>
+  </div>
+
 
     <canvas id="c" class="scene-6"></canvas>
     
@@ -29,12 +39,6 @@
       <div class="horizontal-block third-block"></div>
       <div class="horizontal-block fourth-block"></div>
       <div class="horizontal-block fifth-block"></div>
-    </div>
-    <div class="navbar">
-      <!-- <a id="scene-1">Scene 1</a>
-    <a id="scene-2">Scene 2</a>
-    <a id="scene-3">Scene 3</a> 
-              .....-->
     </div>
 
     <svg
@@ -50,7 +54,19 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/threejs/r84/three.min.js"></script>
-    <script>
+    <!-- <script>
+      (function($){
+  $(document).mousemove(
+    function(e){
+      var X = e.pageX;
+      var Y = e.pageY;
+      console.log(`${X}, ${Y}`)
+      $('#darkness').css('background','radial-gradient(circle closest-side at '+X+'px '+Y+'px, #fff -10%, #121, #000 50%)');
+    }
+  );
+})
+    </script> -->
+    <!-- <script>
       var $mouseX = 0, $mouseY = 0;
       var $xp = 0, $yp =0;
 
@@ -68,7 +84,7 @@
       $("html").attr("style","--mouse-x:" + $xp + "px");
       $("html").attr("style","--mouse-y:"  + $yp + "px");  
       }, 30);
-    </script>
+    </script> -->
     <script>
       function resetHorizontalBlocks() {
         $(".horizontal-block")
@@ -82,6 +98,7 @@
       }
       // $(document).ready(
       function pretransition() {
+        console.log("PreTransition Start");
         // Initial left position to animate from
         $(".horizontal-block").css("left", "-100%");
 
@@ -107,6 +124,7 @@
       // );
       // $(document).ready(
       function transition() {
+        console.log("Transition out");
         // Enhanced easing function for a more prominent bounce effect
         $.extend($.easing, {
           bounce: function (x, t, b, c, d) {

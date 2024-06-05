@@ -38,7 +38,7 @@ function showScene(className)
 
 function transitionAnimation()
 {
-  console.log("DO ANIMATION HERE");
+  // console.log("DO ANIMATION HERE");
 }
 
 
@@ -67,12 +67,13 @@ SCENES.forEach(function (element, i)
   let link = document.createElement("a");
   link.innerHTML = "Scene " + (i+1)
   link.setAttribute("id", "scene-"+(i+1));
+  link.setAttribute("class", "navbar");
   navbar.appendChild(link);
 });
 
 
 
-document.getElementById('planet').addEventListener('click', ()=>{leaveStart();setTimeout(()=>{hideScene(currentScene); currentScene="scene-6";startScene6();showScene(currentScene);},1000)});
+document.getElementById('planet').addEventListener('click', ()=>{leaveStart(); setTimeout(() => {document.getElementById('scene-2').click();}, 250);  });
 
 
 document.getElementById('scene-1').addEventListener('click', ()=>{startScene1();hideScene(currentScene);currentScene="scene-1";showScene(currentScene);run();});
@@ -80,4 +81,7 @@ document.getElementById('scene-2').addEventListener('click', ()=>{leaveStart();s
 
 // document.getElementById('scene-2').addEventListener('click', ()=>{leaveStart();setTimeout(()=>{hideScene(currentScene); currentScene="scene-2";startScene2();showScene(currentScene);},1000)});
 document.getElementById('scene-3').addEventListener('click', ()=>{transitionScene('scene-3')});
+document.getElementById('scene-4').addEventListener('click', ()=>{transitionScene('scene-4')});
+document.getElementById('scene-5').addEventListener('click', ()=>{transitionScene('scene-5')});
 document.getElementById('scene-6').addEventListener('click', ()=>{transitionScene('scene-6')});
+document.getElementById('scene-7').addEventListener('click', ()=>{transitionScene('scene-7')});

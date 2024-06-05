@@ -80,7 +80,7 @@ function countUpHelper()
     starSize = i*2;
     ctx.shadowBlur = i;
     centerSVG();
-    console.log("blurred " + i);
+    // console.log("blurred " + i);
     counting = counting + 0.1;
   }
   else

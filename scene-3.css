@@ -1,8 +1,3 @@
-html
-{
-    --mouse-x: 0px;
-    --mouse-y: 0px;
-}
 #darkness
 {
     visibility: hidden;
@@ -17,12 +12,31 @@ html
 #flashlight
 {
     visibility: hidden;
-    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), white 0%, transparent 20%);
-    /* left: 0px;
+    background: radial-gradient(1000px circle at var(--mouse-x) var(--mouse-y), white 0%, transparent 20%);
+    left: 0px;
     top: 0px;
-    content: ""; */
+    content: "";
     height: 100%;
     width: 100%;
     position: absolute;
+    z-index: 99;
+    pointer-events:none;
+}
+
+#poem-scene-3-container
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 100;
+}
+
+#poem-scene-3
+{   font-size: 40px;
+    line-height: 1.5;
+    white-space: pre;
+    color: black;
     z-index: 100;
 }

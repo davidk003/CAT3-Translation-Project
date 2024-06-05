@@ -3,7 +3,7 @@
 
 function startScene2()
 {
-    document.getElementById('poem').textContent = SCENE2TEXT;
+    document.getElementById('poem-scene-2').textContent = SCENE2TEXT;
 }
 
 function cleanupScene2()
@@ -39,4 +39,4 @@ document.addEventListener('mousemove', function(event) {
     }
 });
 
-document.getElementById('poem').addEventListener('click', ()=>{document.getElementById('scene-3').click();});
+document.getElementById('poem-scene-2').addEventListener('click', ()=>{document.getElementById('scene-3').click();});

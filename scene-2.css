@@ -30,7 +30,7 @@
     z-index: 2;
 }
 
-#poem-container {
+#poem-scene-2-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -39,13 +39,13 @@
     z-index: 1;
 }
 
-#poem {
+#poem-scene-2 {
     font-size: 40px;
     line-height: 1.5;
     white-space: pre;
 }
 
-#poem:hover{
+#poem-scene-2:hover{
     transform: scale(1.2);
     color: white;
     cursor: pointer;
