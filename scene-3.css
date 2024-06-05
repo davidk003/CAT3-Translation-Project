@@ -1,0 +1,28 @@
+html
+{
+    --mouse-x: 0px;
+    --mouse-y: 0px;
+}
+#darkness
+{
+    visibility: hidden;
+    position: absolute;
+    z-index: -100;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+
+#flashlight
+{
+    visibility: hidden;
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), white 0%, transparent 20%);
+    /* left: 0px;
+    top: 0px;
+    content: ""; */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+}

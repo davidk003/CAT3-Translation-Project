@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="scene-2.css" />
+  <link rel="stylesheet" href="scene-3.css" />
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,6 +17,10 @@
     <div id="poem-container" class="scene-2">
         <pre id="poem"></pre>
     </div>
+
+    <div id="darkness" class="scene-3"></div>
+    <div id="flashlight" class="scene-3"></div>
+
     <canvas id="c" class="scene-6"></canvas>
     
     <div id="animation-layer">
@@ -44,6 +50,25 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/threejs/r84/three.min.js"></script>
+    <script>
+      var $mouseX = 0, $mouseY = 0;
+      var $xp = 0, $yp =0;
+
+      $(document).mousemove(function(e){
+          $mouseX = e.pageX;
+          $mouseY = e.pageY;    
+      });
+
+      var $loop = setInterval(function(){
+      // change 12 to alter damping higher is slower
+      $xp += (($mouseX - $xp)/9);
+      $yp += (($mouseY - $yp)/9);
+      console.log($xp, $yp)
+      // $("#flashlight").css({left:$xp +'px', top:$yp +'px'})
+      $("html").attr("style","--mouse-x:" + $xp + "px");
+      $("html").attr("style","--mouse-y:"  + $yp + "px");  
+      }, 30);
+    </script>
     <script>
       function resetHorizontalBlocks() {
         $(".horizontal-block")

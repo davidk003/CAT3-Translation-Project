@@ -1,0 +1,52 @@
+.door {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50vw;
+    background-color: #333;
+    transition: transform 0.5s ease;
+}
+
+#left-door {
+    width:50%; /*width of your image*/
+    height:100%; /*height of your image*/
+    background-image:url('left-door.jpg');
+    margin:0; /* If you want no margin */
+    padding:0; /*if your want to padding */
+    left: 0;
+    transform: translateX(0);
+    z-index: 2;
+}
+
+#right-door {
+    width:50%; /*width of your image*/
+    height:100%; /*height of your image*/
+    background-image:url('right-door.jpg');
+    margin:0; /* If you want no margin */
+    padding:0; /*if your want to padding */
+    right: 0;
+    transform: translateX(0);
+    z-index: 2;
+}
+
+#poem-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+}
+
+#poem {
+    font-size: 40px;
+    line-height: 1.5;
+    white-space: pre;
+}
+
+#poem:hover{
+    transform: scale(1.2);
+    color: white;
+    cursor: pointer;
+}

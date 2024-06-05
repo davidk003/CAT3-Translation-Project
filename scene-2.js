@@ -38,3 +38,5 @@ document.addEventListener('mousemove', function(event) {
         rightDoor.style.transform = 'translateX(0)';
     }
 });
+
+document.getElementById('poem').addEventListener('click', ()=>{document.getElementById('scene-3').click();});
