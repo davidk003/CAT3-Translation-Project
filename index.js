@@ -79,5 +79,5 @@ document.getElementById('scene-1').addEventListener('click', ()=>{startScene1();
 document.getElementById('scene-2').addEventListener('click', ()=>{leaveStart();setTimeout(()=>{hideScene(currentScene); currentScene="scene-2";startScene2();showScene(currentScene);},1000)});
 
 // document.getElementById('scene-2').addEventListener('click', ()=>{leaveStart();setTimeout(()=>{hideScene(currentScene); currentScene="scene-2";startScene2();showScene(currentScene);},1000)});
-document.getElementById('scene-3').addEventListener('click', ()=>{hideScene(currentScene); currentScene="placeholder";});
+document.getElementById('scene-3').addEventListener('click', ()=>{transitionScene('scene-3')});
 document.getElementById('scene-6').addEventListener('click', ()=>{transitionScene('scene-6')});
