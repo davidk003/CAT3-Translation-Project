@@ -1,192 +1,154 @@
 <!DOCTYPE html>
-<!-- FLIP THROUGH CARDS/CONTAINERS AND CHANGE CONTENT -->
 <html lang="en">
-    <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css" />
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>CAT 3 Translation Project</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-      <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-      <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/threejs/r84/three.min.js"></script>
-<script>
-  function resetHorizontalBlocks() {
-  $('.horizontal-block')
-    .stop() // Stop any ongoing animations
-    .css({ // Reset styles
-      left: '0', // Move blocks off-screen
-      width: '100%', // Set width to 0
-      borderRadius: '0px' // Reset border-radius
-    });
-}
-  // $(document).ready(
-    function pretransition() {
-    // Initial left position to animate from
-    $('.horizontal-block').css('left', '-100%');
-
-    // Slide blocks into position
-    $('.horizontal-block').animate({
-        left: 0
-    }, 500, function() {
-        // After sliding in, start width animation
-        $('.horizontal-block').each(function(index) {
-            setTimeout(() => {
-                $(this).css('width', '100%');
-            }, index * 200); // Stagger the animations by 200 milliseconds
-        });
-    });
-    setTimeout(() => {
-            $('.horizontal-block').css('border-radius', '0 5px 5px 0');
-        }, 1000);
-}
-// );
-// $(document).ready(
-  function transition() {
-    // Enhanced easing function for a more prominent bounce effect
-    $.extend($.easing, {
-        bounce: function (x, t, b, c, d) {
-            if ((t/=d) < (1/2.75)) {
-                return c*(7.5625*t*t) + b;
-            } else if (t < (2/2.75)) {
-                return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
-            } else if (t < (2.5/2.75)) {
-                return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
-            } else {
-                return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
-            }
-        }
-    });
-
-    // Function to animate width transition in smaller intervals
-    function animateBlocks() {
-        var intervals = [80,60,40,0];
-        var duration = 150; // 0.1 seconds for each interval
-        var stagger = 100; // 0.3 seconds stagger between each block animation
-
-        $('.horizontal-block').each(function(index) {
-            var delay = index * stagger;
-
-            intervals.forEach(function(width, i) {
-                $(this).delay(delay).animate(
-                    { width: width + '%' },
-                    {
-                        duration: duration,
-                        easing: 'bounce',
-                        complete: function() {
-                            // Optionally, you can do something when each interval completes
-                        }
-                    }
-                );
-                delay += duration;
-            }.bind(this)); // Bind 'this' to correctly reference the current block
-        });
-    }
-
-    // Start the animation
-    animateBlocks();
-}
-// );
-  </script>
-<script>
-  $(document).ready(function() {
-  // Loop through scene links from 1 to 9
-  for (let i = 1; i <= 9; i++) {
-    const sceneLink = $(`#scene-${i}`);
-    sceneLink.click(function() {
-      resetHorizontalBlocks();
-      $('.horizontal-block').css('visibility', 'visible');
-      pretransition();
-      setTimeout(() => {
-        transition();
-        }, 300);
-      setTimeout(() => {
-          $('.horizontal-block').css('visibility', 'hidden');
-          resetHorizontalBlocks();
-        }, 6000);
-    });
-  }
-});
-//   $(document).ready(function() {
-//   const animateLink = $('#scene-9');
-//   animateLink.click(function(event) {
-//     console.log("test");
-//     $('.horizontal-block').css('visibility', 'visible');
-//     pretransition();
-//     // event.preventDefault(); // Prevent default link navigation
-//     transition();
-//   });
-// });
-</script>
-
-
     <canvas id="cnv" class="scene-1"></canvas>
     <canvas id="c" class="scene-6"></canvas>
+
     <div id="animation-layer">
       <div class="horizontal-block first-block"></div>
       <div class="horizontal-block second-block"></div>
       <div class="horizontal-block third-block"></div>
       <div class="horizontal-block fourth-block"></div>
       <div class="horizontal-block fifth-block"></div>
-
-
     </div>
     <div class="navbar">
-    <!-- <a id="scene-1">Scene 1</a>
+      <!-- <a id="scene-1">Scene 1</a>
     <a id="scene-2">Scene 2</a>
-    <a id="scene-3">Scene 3</a>
-    <a id="scene-3">Scene 4</a>
-    <a id="scene-3">Scene 5</a>
-    <a id="scene-3">Scene 6</a>
-    <a id="scene-3">Scene 7</a>
-    <a id="scene-3">Scene 8</a>
-    <a id="scene-3">Scene 9</a> -->
+    <a id="scene-3">Scene 3</a> 
+              .....-->
     </div>
 
-    <svg viewBox="0 0 200 200" width="100" height="100" xmlns="http://www.w3.org/2000/svg" id="planet" class="scene-1">
-        <image href="planet.png" height="200" width="200"></image>
-      </svg>
-      
-      
+    <svg
+      viewBox="0 0 200 200"
+      width="100"
+      height="100"
+      xmlns="http://www.w3.org/2000/svg"
+      id="planet"
+      class="scene-1"
+    >
+      <image href="planet.png" height="200" width="200"></image>
+    </svg>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/threejs/r84/three.min.js"></script>
+    <script>
+      function resetHorizontalBlocks() {
+        $(".horizontal-block")
+          .stop() // Stop any ongoing animations
+          .css({
+            // Reset styles
+            left: "0", // Move blocks off-screen
+            width: "100%", // Set width to 0
+            borderRadius: "0px", // Reset border-radius
+          });
+      }
+      // $(document).ready(
+      function pretransition() {
+        // Initial left position to animate from
+        $(".horizontal-block").css("left", "-100%");
 
-      
-<!-- 
-    <div id="card-box">
-
-        <div id="poem-container" class="text-card">
-            <h2>[Poem Title]</h2>
-            <h3>By [author]</h3>
-            <p id="poem-text"></p>
-        </div>
-        <div id="intro-container" class="text-card">
-            <h2>Intro/Conclusion</h2>
-            <h3>By [author]</h3>
-            <p id="intro-text"></p>
-        </div>
-    </div> -->
-  <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
-  <script src="starting.js"></script>
-	<script src="index.js"></script>
-  <script src="panning.js"></script>
-  <script src="friction.js"></script>
-
-    <!-- <script>
-        const poemStr="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In egestas erat imperdiet sed euismod nisi. Sit amet nisl purus in mollis nunc sed id semper. Lectus mauris ultrices eros in cursus. Amet massa vitae tortor condimentum lacinia quis vel eros. Magna etiam tempor orci eu lobortis elementum. Tempor commodo ullamcorper a lacus. Diam sit amet nisl suscipit adipiscing bibendum est. Ipsum a arcu cursus vitae congue mauris rhoncus aenean vel. Donec massa sapien faucibus et molestie ac feugiat sed. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Iaculis nunc sed augue lacus viverra vitae. Curabitur gravida arcu ac tortor dignissim convallis aenean. Netus et malesuada fames ac turpis egestas integer eget aliquet. Lorem sed risus ultricies tristique nulla aliquet enim. Lorem ipsum dolor sit amet. A diam maecenas sed enim ut sem. Sit amet justo donec enim diam vulputate. In eu mi bibendum neque egestas congue quisque egestas diam. Vestibulum morbi blandit cursus risus. Pellentesque elit ullamcorper dignissim cras tincidunt. Habitant morbi tristique senectus et netus. Ut venenatis tellus in metus vulputate eu. Lectus nulla at volutpat diam ut venenatis tellus. Facilisi morbi tempus iaculis urna id. Aenean sed adipiscing diam donec adipiscing tristique risus nec."
-        // let poemP = document.getElementById("poem-text");
-        let textCards = document.querySelectorAll("div.text-card");
-        textCards.forEach(element => {
-            console.log(element);
-            element.querySelector('p').textContent=poemStr;
+        // Slide blocks into position
+        $(".horizontal-block").animate(
+          {
+            left: 0,
+          },
+          500,
+          function () {
+            // After sliding in, start width animation
+            $(".horizontal-block").each(function (index) {
+              setTimeout(() => {
+                $(this).css("width", "100%");
+              }, index * 200); // Stagger the animations by 200 milliseconds
+            });
+          }
+        );
+        setTimeout(() => {
+          $(".horizontal-block").css("border-radius", "0 5px 5px 0");
+        }, 1000);
+      }
+      // );
+      // $(document).ready(
+      function transition() {
+        // Enhanced easing function for a more prominent bounce effect
+        $.extend($.easing, {
+          bounce: function (x, t, b, c, d) {
+            if ((t /= d) < 1 / 2.75) {
+              return c * (7.5625 * t * t) + b;
+            } else if (t < 2 / 2.75) {
+              return c * (7.5625 * (t -= 1.5 / 2.75) * t + 0.75) + b;
+            } else if (t < 2.5 / 2.75) {
+              return c * (7.5625 * (t -= 2.25 / 2.75) * t + 0.9375) + b;
+            } else {
+              return c * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375) + b;
+            }
+          },
         });
 
-        
+        // Function to animate width transition in smaller intervals
+        function animateBlocks() {
+          var intervals = [80, 60, 40, 0];
+          var duration = 150; // 0.1 seconds for each interval
+          var stagger = 100; // 0.3 seconds stagger between each block animation
 
-        function stopElementDrag(){
-            console.log("start dragging");  
+          $(".horizontal-block").each(function (index) {
+            var delay = index * stagger;
+
+            intervals.forEach(
+              function (width, i) {
+                $(this)
+                  .delay(delay)
+                  .animate(
+                    { width: width + "%" },
+                    {
+                      duration: duration,
+                      easing: "bounce",
+                      complete: function () {
+                        // Optionally, you can do something when each interval completes
+                      },
+                    }
+                  );
+                delay += duration;
+              }.bind(this)
+            ); // Bind 'this' to correctly reference the current block
+          });
         }
-    </script> -->
+
+        // Start the animation
+        animateBlocks();
+      }
+      // );
+    </script>
+    <script>
+      $(document).ready(function () {
+        // Loop through scene links from 1 to 9
+        for (let i = 1; i <= 9; i++) {
+          const sceneLink = $(`#scene-${i}`);
+          sceneLink.click(function () {
+            resetHorizontalBlocks();
+            $(".horizontal-block").css("visibility", "visible");
+            pretransition();
+            setTimeout(() => {
+              transition();
+            }, 300);
+            setTimeout(() => {
+              $(".horizontal-block").css("visibility", "hidden");
+              resetHorizontalBlocks();
+            }, 6000);
+          });
+        }
+      });
+    </script>
+    <script src="starting.js"></script>
+    <script src="index.js"></script>
+    <script src="panning.js"></script>
+    <script src="friction.js"></script>
   </body>
 </html>

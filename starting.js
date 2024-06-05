@@ -138,9 +138,6 @@ function leaveStart()
   countUp();
   setTimeout(() => {
     hideScene(currentScene);
-    // document.getElementById("cnv").style.visibility = "hidden";
-    // document.getElementById("planet").style.visibility = "hidden";
-    // document.getElementById("c").style.visibility = "visible";
   }, 1000);
 }
 
