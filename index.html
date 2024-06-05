@@ -63,7 +63,7 @@
 
     // Function to animate width transition in smaller intervals
     function animateBlocks() {
-        var intervals = [80,60,40,20,0];
+        var intervals = [80,60,40,0];
         var duration = 150; // 0.1 seconds for each interval
         var stagger = 100; // 0.3 seconds stagger between each block animation
 
@@ -102,7 +102,7 @@
       pretransition();
       setTimeout(() => {
         transition();
-        }, 500);
+        }, 300);
       setTimeout(() => {
           $('.horizontal-block').css('visibility', 'hidden');
           resetHorizontalBlocks();
@@ -124,7 +124,7 @@
 
 
     <canvas id="cnv" class="scene-1"></canvas>
-    <canvas id="c" class="scene-2"></canvas>
+    <canvas id="c" class="scene-6"></canvas>
     <div id="animation-layer">
       <div class="horizontal-block first-block"></div>
       <div class="horizontal-block second-block"></div>

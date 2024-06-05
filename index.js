@@ -24,12 +24,14 @@ startScene1();
 
 function hideScene(className)
 {
+  console.log("Hiding Scene: " + className);
   let sceneElements = document.getElementsByClassName(className);
   [...sceneElements].forEach(element => {element.style.visibility="hidden"});
 }
 
 function showScene(className)
 {
+  console.log("Showing Scene: " + className);
   let sceneElements = document.getElementsByClassName(className);
   [...sceneElements].forEach(element => {element.style.visibility="visible"});
 }
@@ -44,12 +46,17 @@ function transitionAnimation()
 function transitionScene(sceneToStart)
 {
   let sceneNumber = currentScene.replace(/[^0-9]/g, '');
+  let storeScene = currentScene;
   transitionAnimation();            //Play transition animation
-  hideScene(currentScene);          //Hide scene 
+  setTimeout(() => {hideScene(storeScene);}, 500);          //Hide scene 
   window["cleanupScene"+sceneNumber];
   currentScene = sceneToStart;      //Set scene state
-  showScene(currentScene);          //Show scene
-  window["startScene"+sceneNumber];//Call Scene runner
+  setTimeout(() => {showScene(currentScene);  
+    
+  }, 500);        //Show scene
+  let thing = "startScene"+sceneToStart.replace(/[^0-9]/g, '')+"()";
+  eval(thing)
+  // window["startScene"+sceneToStart.replace(/[^0-9]/g, '')];//Call Scene runner
   
 }
 
@@ -65,7 +72,7 @@ SCENES.forEach(function (element, i)
 
 
 
-document.getElementById('planet').addEventListener('click', ()=>{leaveStart();setTimeout(()=>{hideScene(currentScene); currentScene="scene-2";startScene2();showScene(currentScene);},1000)});
+document.getElementById('planet').addEventListener('click', ()=>{leaveStart();setTimeout(()=>{hideScene(currentScene); currentScene="scene-6";startScene6();showScene(currentScene);},1000)});
 
 
 document.getElementById('scene-1').addEventListener('click', ()=>{startScene1();hideScene(currentScene);currentScene="scene-1";showScene(currentScene);run();});
@@ -73,3 +80,4 @@ document.getElementById('scene-2').addEventListener('click', ()=>{leaveStart();s
 
 // document.getElementById('scene-2').addEventListener('click', ()=>{leaveStart();setTimeout(()=>{hideScene(currentScene); currentScene="scene-2";startScene2();showScene(currentScene);},1000)});
 document.getElementById('scene-3').addEventListener('click', ()=>{hideScene(currentScene); currentScene="placeholder";});
+document.getElementById('scene-6').addEventListener('click', ()=>{transitionScene('scene-6')});

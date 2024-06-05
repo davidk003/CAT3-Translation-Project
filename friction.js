@@ -60,9 +60,9 @@ window.onload=function()
     fixAspect();
 }
 
-function startScene2()
+function startScene6()
 {
-    console.log("transiton to friction");
+    console.log("transiton to friction(scene-6)");
     if(sceneNotRendered)
     {
         main();
