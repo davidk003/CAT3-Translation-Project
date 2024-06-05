@@ -8,10 +8,11 @@ var starSpawnSpeed = 50;
 var starsOn = true;
 var counting = 1;
 var counter = null;
+var planet = document.getElementById('planet');
 
 function centerSVG()
 {
-  var svg = document.getElementById('planet');
+  var svg = planet;
   
   var windowWidth = window.innerWidth;
   var windowHeight = window.innerHeight;
@@ -37,10 +38,10 @@ function startScene1()
   //Glow effect;
   ctx.shadowBlur = 10;
   ctx.shadowColor = "white";
-  document.getElementById('planet').style.filter = "none";
+  planet.style.filter = "none";
   document.getElementById('cnv').style.filter = "none";
-  document.getElementById('planet').style.width = "100";
-  document.getElementById('planet').style.height = "100";
+  planet.style.width = "100";
+  planet.style.height = "100";
   centerSVG();
 
   function animateHelper(go)
@@ -62,51 +63,20 @@ function startScene1()
 
   function animate() {
     //Using setTimeout instead of window.requestAnimationFrame for slower speed... window.requestAnimationFrame is approximately equal to setTimeout(func, 17);
-
     setInterval(animateHelper, starSpawnSpeed, starsOn);
   }
-
-  
-  // document.getElementById('menu2').addEventListener('click', startingPage);
   animate();
 }
-
-
-// function countUpBlur(i)
-// {
-//   if(i >5)
-//   {
-//     ctx.shadowBlur = 10;
-//     starSpawnSpeed = 50;
-//     starSize = 2.5;
-//     console.log("scene 1 transition done");
-//     starLocs=[];
-//     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-//   }
-//   else
-//   {
-//     document.getElementById('planet').style.filter = `blur(${i}px)`;
-//     document.getElementById('cnv').style.filter = `blur(${i}px)`;
-//     document.getElementById('planet').style.width = `${100*(2*i)}px`;
-//     document.getElementById('planet').style.height = `${100*(2*i)}px`;
-//     starSize = i*2;
-//     ctx.shadowBlur = i;
-//     centerSVG();
-//     console.log("blurred " + i);
-//     setTimeout(countUpBlur, 25, i+0.1);
-//   }
-// }
 
 function countUpHelper()
 {
   if(counting < 5)
   {
     let i = counting;
-    document.getElementById('planet').style.filter = `blur(${i}px)`;
+    planet.style.filter = `blur(${i}px)`;
     document.getElementById('cnv').style.filter = `blur(${i}px)`;
-    document.getElementById('planet').style.width = `${100*(2*i)}px`;
-    document.getElementById('planet').style.height = `${100*(2*i)}px`;
+    planet.style.width = `${100*(2*i)}px`;
+    planet.style.height = `${100*(2*i)}px`;
     starSize = i*2;
     ctx.shadowBlur = i;
     centerSVG();
