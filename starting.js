@@ -97,7 +97,7 @@ function countUpHelper()
 
 function countUp()
 {
-  counter = setInterval(countUpHelper, 25);
+  counter = setInterval(countUpHelper, 10);
 }
 
 function leaveStart()
