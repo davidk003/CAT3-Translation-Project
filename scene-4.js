@@ -1,9 +1,9 @@
 const boxBackground = document.getElementById("box-background");
+const poem4 = document.getElementById('poem-scene-4');
 
 function startScene4()
 {
-    document.getElementById('poem-scene-4').textContent = SCENE4TEXT;
-    console.log("bruh");
+    poem4.textContent = SCENE4TEXT;
 }
 
 function cleanupScene4()
@@ -34,11 +34,13 @@ boxBackground.addEventListener("click", function() {
 });
 
 boxBackground.addEventListener("click", ()=>{
-        document.getElementById('poem-scene-4').classList.add('shake-animation');
+    poem4.classList.add('shake-animation');
         setTimeout(() => {
-            document.getElementById('poem-scene-4').classList.remove('shake-animation');
+            poem4.classList.remove('shake-animation');
             setTimeout(() => {
                 boxBackground.style.background = "var(--AirSuperiorityBlue)"
             }, 250);
     
 }, 2500); })
+
+poem4.addEventListener("click", ()=>{document.getElementById('scene-5').click()});

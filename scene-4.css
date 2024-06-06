@@ -14,8 +14,16 @@
     white-space: pre;
     color: black;
     z-index: 100;
+    cursor: pointer;
     /* animation: shake 0.5s infinite; */
 }
+
+#poem-scene-4:hover {
+    transform: scale(1.1);
+    color: white;
+    cursor: pointer;
+}
+
 .shake-animation {
     animation: shake 0.5s infinite;
 }
@@ -34,7 +42,6 @@
 }
 #box-background
 {
-    cursor: pointer;
     z-index: 0;
     visibility: hidden;
     background-color: var(--AirSuperiorityBlue);

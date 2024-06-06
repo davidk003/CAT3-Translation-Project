@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="scene-5.css" />
   <link rel="stylesheet" href="scene-6.css" />
   <link rel="stylesheet" href="scene-7.css" />
+  <link rel="stylesheet" href="scene-8.css" />
+  <link rel="stylesheet" href="scene-9.css" />
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,6 +62,11 @@
 
     <canvas id="c" class="scene-6"></canvas>
     
+    <canvas id="globe" class="scene-7"></canvas>
+
+    <img class="scene-9" src="bg.png" id="pattern" width=50 height=50>
+    <canvas id="chalkboard" class="scene-9"></canvas>
+    <div class="chalk scene-9"></div>
 
     <div id="animation-layer">
       <div class="horizontal-block first-block"></div>
@@ -79,40 +86,11 @@
     >
       <image href="planet.png" height="200" width="200"></image>
     </svg>
+    <script src="chalk.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/threejs/r84/three.min.js"></script>
-    <!-- <script>
-      (function($){
-  $(document).mousemove(
-    function(e){
-      var X = e.pageX;
-      var Y = e.pageY;
-      console.log(`${X}, ${Y}`)
-      $('#darkness').css('background','radial-gradient(circle closest-side at '+X+'px '+Y+'px, #fff -10%, #121, #000 50%)');
-    }
-  );
-})
-    </script> -->
-    <!-- <script>
-      var $mouseX = 0, $mouseY = 0;
-      var $xp = 0, $yp =0;
 
-      $(document).mousemove(function(e){
-          $mouseX = e.pageX;
-          $mouseY = e.pageY;    
-      });
-
-      var $loop = setInterval(function(){
-      // change 12 to alter damping higher is slower
-      $xp += (($mouseX - $xp)/9);
-      $yp += (($mouseY - $yp)/9);
-      console.log($xp, $yp)
-      // $("#flashlight").css({left:$xp +'px', top:$yp +'px'})
-      $("html").attr("style","--mouse-x:" + $xp + "px");
-      $("html").attr("style","--mouse-y:"  + $yp + "px");  
-      }, 30);
-    </script> -->
     <script>
       function resetHorizontalBlocks() {
         $(".horizontal-block")
@@ -222,6 +200,7 @@
         }
       });
     </script>
+    <!-- <script src="//unpkg.com/globe.gl"></script> -->
     <script src="starting.js"></script>
     <script src="index.js"></script>
     <script src="panning.js"></script>

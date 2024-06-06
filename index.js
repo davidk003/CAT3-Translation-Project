@@ -85,3 +85,5 @@ document.getElementById('scene-4').addEventListener('click', ()=>{transitionScen
 document.getElementById('scene-5').addEventListener('click', ()=>{transitionScene('scene-5')});
 document.getElementById('scene-6').addEventListener('click', ()=>{transitionScene('scene-6')});
 document.getElementById('scene-7').addEventListener('click', ()=>{transitionScene('scene-7')});
+document.getElementById('scene-8').addEventListener('click', ()=>{transitionScene('scene-8')});
+document.getElementById('scene-9').addEventListener('click', ()=>{transitionScene('scene-9')});
