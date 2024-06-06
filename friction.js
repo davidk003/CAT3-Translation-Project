@@ -17,7 +17,14 @@ const far = 5;
 // const camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
 const camera = new THREE.PerspectiveCamera( fov, (canvas.width / canvas.height), near, far );
 camera.position.z = 2;
+
+// const environment = new RoomEnvironment();
+// const pmremGenerator = new THREE.PMREMGenerator( renderer );
+
 const scene = new THREE.Scene();
+
+scene.background = new THREE.Color( 0x00FFFF );
+// scene.environment = pmremGenerator.fromScene( environment ).texture;
 
 const boxWidth = 1;
 const boxHeight = 1;
@@ -36,14 +43,16 @@ function main()
 //     var geo = new THREE.PlaneBufferGeometry(2000, 2000, 8, 8);
 // var mat = new THREE.MeshBasicMaterial({ color: 0xA52A2A, side: THREE.DoubleSide });
 // var plane = new THREE.Mesh(geo, mat);
-const geometry = new THREE.PlaneGeometry( 5,5);
+const geometry = new THREE.PlaneGeometry(2,2,1,1);
 const material = new THREE.MeshBasicMaterial( {color: 0xA52A2A, side: THREE.DoubleSide} );
 const plane = new THREE.Mesh( geometry, material );
 // plane.rotateX( - Math.PI / 2);
 scene.add( plane );
     fixAspect();
     setTimeout(() => {
-        camera.translateX(1);
+        setInterval(() => {
+            camera.translateX(0.01);
+        }, 10);
     }, 5000);
     function render(time)
     {
