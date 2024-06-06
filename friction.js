@@ -17,7 +17,6 @@ const far = 5;
 // const camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
 const camera = new THREE.PerspectiveCamera( fov, (canvas.width / canvas.height), near, far );
 camera.position.z = 2;
-
 const scene = new THREE.Scene();
 
 const boxWidth = 1;
@@ -29,12 +28,23 @@ const material = new THREE.MeshBasicMaterial( { color: 0x44aa88 } ); // greenish
 
 const cube = new THREE.Mesh( geometry, material );
 var sceneNotRendered = true;
+
 function main()
 {
 	scene.add( cube );
-
 	renderer.render( scene, camera );
+//     var geo = new THREE.PlaneBufferGeometry(2000, 2000, 8, 8);
+// var mat = new THREE.MeshBasicMaterial({ color: 0xA52A2A, side: THREE.DoubleSide });
+// var plane = new THREE.Mesh(geo, mat);
+const geometry = new THREE.PlaneGeometry( 5,5);
+const material = new THREE.MeshBasicMaterial( {color: 0xA52A2A, side: THREE.DoubleSide} );
+const plane = new THREE.Mesh( geometry, material );
+// plane.rotateX( - Math.PI / 2);
+scene.add( plane );
     fixAspect();
+    setTimeout(() => {
+        camera.translateX(1);
+    }, 5000);
     function render(time)
     {
         time *= 0.001;  // convert time to seconds
