@@ -1,5 +1,4 @@
-#poem-scene-4-container
-{
+#poem-scene-4-container {
     visibility: hidden;
     position: absolute;
     top: 50%;
@@ -9,20 +8,39 @@
     z-index: 100;
 }
 
-#poem-scene-4
-{   font-size: 40px;
+#poem-scene-4 {
+    font-size: 40px;
     line-height: 1.5;
     white-space: pre;
     color: black;
     z-index: 100;
+    /* animation: shake 0.5s infinite; */
 }
-
+.shake-animation {
+    animation: shake 0.5s infinite;
+}
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
 #box-background
 {
+    cursor: pointer;
     z-index: 0;
     visibility: hidden;
-    background-color: radial-gradient(circle, rgba(102,155,188,1) 100%, rgba(228,87,46,1) 100%, rgba(228,87,46,1) 100%); 
+    background-color: var(--AirSuperiorityBlue);
+    background: radial-gradient(circle, var(--Flame) 0%, var(--AirSuperiorityBlue) 0%);  
     position: absolute;
     height: 100%;
     width: 100%;
+    /* transition: background 2s ease-in-out;  this doesnt work for gradients*/
 }
